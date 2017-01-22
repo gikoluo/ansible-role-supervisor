@@ -13,8 +13,10 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - trusty
-  categories:
-    - development
-    - web
+  galaxy_tags:
+    - system
+    - supervisor
+    - pip
+    - python27
 
 dependencies: []

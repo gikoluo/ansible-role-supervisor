@@ -1,0 +1,8 @@
+---
+
+- name: Install supervisor
+  include: install.yml
+
+- name: Install as Service
+  include: install-service.yml
+

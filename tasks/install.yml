@@ -1,0 +1,29 @@
+---
+
+- name: Remove Supervisor by systemd (Depreciate. yum supervisor is 2.X and too old)
+  package: 
+    name: "{{ supervisor_package }}"
+    state: absent
+
+
+- name: Install python-pip by package
+  package: name={{ item }} state=present
+  with_items:
+    - python-meld3
+    - python-pip
+
+- name: "Install meld3"
+  pip: name=meld3 version={{ meld3_version }}
+
+- name: "Upgrade Pip"
+  pip: name=pip version={{ pip_version }}
+
+- name: Install Supervisor
+  pip: 
+    name: "{{ supervisor_package }}"
+    version: "{{ supervisor_version }}"
+
+- name: Make Supervisor config
+  template: src=supervisord.conf.j2 dest="{{ supervisor_conf }}" mode=0644 
+
+

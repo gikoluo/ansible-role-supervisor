@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: "Luo Chunhui"
+  description: "Installs Supervisor (latest)"
+  company: "Jfpal L.T.D"
+  license: "license (MIT)"
+  min_ansible_version: 2.1
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - trusty
+  categories:
+    - development
+    - web
+
+dependencies: []

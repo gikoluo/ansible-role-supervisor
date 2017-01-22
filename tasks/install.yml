@@ -26,4 +26,6 @@
 - name: Make Supervisor config
   template: src=supervisord.conf.j2 dest="{{ supervisor_conf }}" mode=0644 
 
+- name: Make Supervisor config directory
+  file: path="{{ supervisor_conf_dir }}" state=directory mode="0755"
 

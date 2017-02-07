@@ -107,4 +107,4 @@ serverurl=unix://{{ supervisor_sock }} ; use a unix:// URL  for a unix socket
 ; include files themselves.
 
 [include]
-files = {{ supervisor_conf_dir }}/*.ini
+files = {{ supervisord_conf_dir }}/*.ini

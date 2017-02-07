@@ -4,8 +4,8 @@ supervisor_package: supervisor
 supervisor_service: supervisord
 supervisor_version: "3.3.1"
 
-supervisor_conf_dir: /etc/supervisor
-supervisor_conf: "{{supervisor_conf_dir}}/supervisord.conf"
+supervisord_conf: /etc/supervisor
+supervisord_conf_path: "{{supervisord_conf}}/supervisord.conf"
 
 supervisor_pid_file: /var/run/supervisord.pid
 supervisor_sock: /tmp/supervisor.sock

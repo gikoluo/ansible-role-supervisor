@@ -3,13 +3,16 @@
 - name: Make supervisor as system service
   template: src=supervisord.j2 dest="/etc/init.d/supervisord" mode=0755
   register: result
-  #when: ( ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' ) and ansible_distribution_major_version|int >= 6
+  #when: ansible_virtualization_type != 'docker'  and ansible_distribution_major_version|int >= 6
   notify:
     - restart supervisor
-    
+
+
 - shell: chkconfig --add supervisord && chkconfig supervisord on chdir=/etc/init.d/
-  when: result|changed
-  
+  when: result|changed and ansible_virtualization_type != 'docker'
+
+
+
 # - name: Start and enable service
 #   service: name={{ supervisor_service }} state=started enabled=yes
 #   when: result|changed

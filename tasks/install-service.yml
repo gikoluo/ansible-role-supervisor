@@ -3,7 +3,7 @@
 - name: Make supervisor as system service
   template: src=supervisord.j2 dest="/etc/init.d/supervisord" mode=0755
   register: result
-  when: ( ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' ) and ansible_distribution_major_version|int >= 6
+  #when: ( ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' ) and ansible_distribution_major_version|int >= 6
   notify:
     - restart supervisor
     

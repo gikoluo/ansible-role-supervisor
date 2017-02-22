@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/gikoluo/ansible-role-supervisor.svg?branch=master)](https://travis-ci.org/gikoluo/ansible-role-supervisor)
 
-Installs Supervisor (latest)
+An Ansible role that installs Supervisor By PIP
 
 ## Supported platforms
 
@@ -14,7 +14,7 @@ Ubuntu 14.04
 
 ## Requirements
 
-None
+supervisor_version: "3.3.1"
 
 ## Role Variables
 
@@ -22,8 +22,8 @@ None
 
 ## Dependencies
 
-```
-```
+
+None
 
 ## Example Playbook
 
@@ -33,9 +33,6 @@ None
     - { role: gikoluo.supervisor }
 ```
 
-```
-ansible-playbook samples/supervisor.yaml -i vagrant -l "*.106"
-```
 
 ## License
 

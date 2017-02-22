@@ -35,6 +35,7 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Make sure supervisord is running, print some things
+  - "cat /var/log/supervisord.log"
   - >
     ps aux |  grep -v "grep" | grep supervisor 
 

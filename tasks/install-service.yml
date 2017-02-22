@@ -22,8 +22,8 @@
   notify:
     - restart supervisord
 
-- name: Make supervisord as system service
-  template: src=supervisord.upstart.j2 dest="/etc/init/supervisord" mode=0755
+- name: Make supervisord as upstart system service
+  template: src=supervisord.upstart.j2 dest="/etc/init/supervisord.conf" mode=0644 owner=root group=root
   when: ansible_service_mgr=="upstart"
   notify:
     - restart supervisord

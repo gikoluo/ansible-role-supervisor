@@ -9,7 +9,11 @@
     - restart supervisord
   register: rs
 
-
+- systemd:
+    state: restarted
+    daemon_reload: yes
+    name: supervisord
+  when: ansible_service_mgr=="systemd" and rs|changed
 
 
 - name: Make supervisord as system service
@@ -24,8 +28,3 @@
   notify:
     - restart supervisord
 
-- systemd:
-    state: restarted
-    daemon_reload: yes
-    name: supervisord
-    

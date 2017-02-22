@@ -1,8 +1,12 @@
 ---
 
-- name: Install supervisor
+- name: Supervisor | Install in el6
+  include: install-for-el6.yml
+  when: ((ansible_distribution == "CentOS" or ansible_distribution == "Redhat") and ansible_distribution_major_version <= "6")
+ 
+- name: Supervisor | Install in el6 
   include: install.yml
+  when: not ((ansible_distribution == "CentOS" or ansible_distribution == "Redhat") and ansible_distribution_major_version <= "6")
 
-- name: Install as Service
-  include: install-service.yml
+
 

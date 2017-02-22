@@ -1,5 +1,7 @@
 # Ansible Role: Supervisor
 
+[![Build Status](https://travis-ci.org/gikoluo/ansible-role-supervisor.svg?branch=master)](https://travis-ci.org/gikoluo/ansible-role-supervisor)
+
 Installs Supervisor (latest)
 
 ## Supported platforms

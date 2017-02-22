@@ -9,12 +9,6 @@
     - restart supervisord
   register: rs
 
-- systemd:
-    state: restarted
-    daemon_reload: yes
-    name: supervisord
-  when: ansible_service_mgr=="systemd" and rs|changed
-
 - name: Make supervisord as system service
   template: src=supervisord.sysvinit.j2 dest="/etc/init.d/supervisord" mode=0755
   when: ansible_service_mgr=="sysvinit"
@@ -26,3 +20,9 @@
   when: ansible_service_mgr=="upstart"
   notify:
     - restart supervisord
+
+- systemd:
+  state: restarted
+  daemon_reload: yes
+  name: supervisord
+  

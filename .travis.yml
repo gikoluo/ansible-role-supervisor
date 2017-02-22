@@ -49,3 +49,9 @@ script:
     | grep -q 'supervisord.conf'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
+
+notifications:
+    webhooks: https://galaxy.ansible.com/api/v1/notifications/
+    
+    

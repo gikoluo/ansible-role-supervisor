@@ -4,7 +4,7 @@ Documentation=http://supervisord.org
 After=network.target
 
 [Service]
-ExecStart=${SUPERVISORD-/usr/bin/supervisord} -n -c {{supervisord_conf_path}}
+ExecStart=/usr/bin/supervisord -n -c {{supervisord_conf_path}}
 ExecStop=/usr/bin/supervisorctl $OPTIONS shutdown
 ExecReload=/usr/bin/supervisorctl $OPTIONS reload
 KillMode=process
@@ -13,3 +13,4 @@ RestartSec=50s
 
 [Install]
 WantedBy=multi-user.target
+

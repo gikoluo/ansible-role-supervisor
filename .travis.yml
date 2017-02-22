@@ -36,11 +36,11 @@ script:
 
   # Make sure supervisord is running, print some things
   - >
-    ps aux | grep supervisor |  grep -v "grep"
+    ps aux |  grep -v "grep" | grep supervisor 
 
   # Make sure supervisord is running and with conf settings
   - >
-    ps aux | grep supervisord  |  grep -v "grep"
+    ps aux |  grep -v "grep" |  grep supervisord 
     | grep 'supervisord.conf'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)

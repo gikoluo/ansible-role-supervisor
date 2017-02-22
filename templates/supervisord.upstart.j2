@@ -1,0 +1,15 @@
+description "Supervisor servlet container"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+respawn
+respawn limit 10 5
+
+
+script
+  exec /usr/bin/supervisord -n -c {{supervisord_conf_path}}
+end script
+
+post-stop script
+  
+end script

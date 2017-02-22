@@ -30,17 +30,21 @@ script:
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
     ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
-    | grep -q 'changed=0.*failed=0'
+    | grep 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # Make sure supervisord is running.
-  - "ps aux"
+  # Make sure supervisord is running, print some things
+  - "ps aux | grep supervisor"
 
-  # Make sure supervisord is running.
+  # Make sure supervisord is running and with conf settings
   - >
     ps aux | grep supervisord 
-    | grep -q 'supervisord.conf'
+    | grep 'supervisord.conf'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
   - >
     ls -1 /etc/supervisor
     | grep -q 'supervisord.conf'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)

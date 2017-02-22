@@ -35,21 +35,21 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Make sure supervisord is running, print some things
-  - "cat /var/log/supervisord.log"
-  - >
-    ps aux |  grep -v "grep" | grep supervisor 
+  #- "cat /var/log/supervisord.log"
+  #- >
+  #  ps aux |  grep -v "grep" | grep supervisor 
 
   # Make sure supervisord is running and with conf settings
-  - >
-    ps aux |  grep -v "grep" |  grep supervisord 
-    | grep 'supervisord.conf'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
-  - >
-    ls -1 /etc/supervisor
-    | grep -q 'supervisord.conf'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
+  #- >
+  #  ps aux |  grep -v "grep" |  grep supervisord 
+  #  | grep 'supervisord.conf'
+  #  && (echo 'Idempotence test: pass' && exit 0)
+  #  || (echo 'Idempotence test: fail' && exit 1)
+  #- >
+  #  ls -1 /etc/supervisor
+  #  | grep -q 'supervisord.conf'
+  #  && (echo 'Idempotence test: pass' && exit 0)
+  #  || (echo 'Idempotence test: fail' && exit 1)
 
 
 notifications:

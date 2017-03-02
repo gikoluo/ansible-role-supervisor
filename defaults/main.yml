@@ -9,7 +9,8 @@ supervisord_conf_path: "{{supervisord_conf}}/supervisord.conf"
 
 supervisor_pid_file: /var/run/supervisord.pid
 supervisor_sock: /tmp/supervisor.sock
-supervisor_log: /var/log/supervisord.log
+supervisor_chmod: "0770"
+supervisor_log: "{{ log_root|default('/var/log') }}/supervisord.log"
 
 pip_version: "9.0.1"
 meld3_version: "0.6.7"

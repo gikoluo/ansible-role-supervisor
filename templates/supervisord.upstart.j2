@@ -8,7 +8,7 @@ respawn
 respawn limit 10 5
 
 script
-    exec /usr/bin/supervisord -c {{supervisord_conf_path}}
+    exec /usr/bin/supervisord -n -c {{supervisord_conf_path}}
 end script
 
 

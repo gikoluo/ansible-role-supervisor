@@ -30,3 +30,7 @@
   template: src=supervisord.conf.j2 dest="{{ supervisord_conf_path }}" mode="0644"
   notify:
     - restart supervisord
+
+- name: Ensure supervisord started
+  service: name={{ supervisor_service }} state=started
+  

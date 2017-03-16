@@ -31,6 +31,5 @@
   notify:
     - restart supervisord
 
-- name: Ensure supervisord started
-  service: name={{ supervisor_service }} state=started
+
   

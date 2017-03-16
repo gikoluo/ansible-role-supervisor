@@ -6,3 +6,5 @@
 - name: Install as Service
   include: install-service.yml
 
+- name: Ensure supervisord started
+  service: name={{ supervisor_service }} state=started

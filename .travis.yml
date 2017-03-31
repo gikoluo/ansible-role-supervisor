@@ -48,7 +48,7 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
 
-  # Ensure Java is installed.
+  # Ensure Supervisor is installed.
   - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm which supervisorctl'
 
   # Check the role/playbook's syntax.

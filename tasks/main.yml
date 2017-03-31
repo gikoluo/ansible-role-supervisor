@@ -7,4 +7,4 @@
   include: install-service.yml
 
 - name: Ensure supervisord started
-  service: name={{ supervisor_service }} state=started
+  service: name={{ supervisor_service }} state=started enabled=yes
